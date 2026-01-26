@@ -30,7 +30,10 @@ const DecryptionPanel = () => {
       const response = await axios.post(
         `${API_URL}/api/crypto/encrypt`, // Note the different endpoint
         formData, 
-        { responseType: 'blob' }
+        { headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                responseType: 'blob' }
       );
 
       // Download Logic (It returns a PNG this time, not a ZIP)
