@@ -28,7 +28,7 @@ const DecryptionPanel = () => {
 
     try {
       const response = await axios.post(
-        `${API_URL}/api/crypto/encrypt`, // Note the different endpoint
+        `${API_URL}/api/crypto/decrypt`, // Note the different endpoint
         formData, 
         { headers: {
                     'Content-Type': 'multipart/form-data',
