@@ -4,10 +4,13 @@ import DecryptionPanel from './components/DecryptionPanel';
 
 function App() {
   return (
-    <div className="App" style={{ padding: '20px' }}>
-      <h1 style={{ textAlign: 'center' }}>Chaos Encryption Engine</h1>
+    <div className="App">
+      <div className="header">
+        <h1 className="main-title">Secure Image Vault</h1>
+        <p className="subtitle">Client-side encryption for your sensitive media</p>
+      </div>
       
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+      <div className="panel-container">
         {/* Left Side: Encrypt */}
         <EncryptionPanel />
         

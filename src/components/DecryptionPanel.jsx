@@ -54,27 +54,32 @@ const DecryptionPanel = () => {
   };
 
   return (
-    <div style={{ padding: '20px', border: '1px solid #ddd', borderRadius: '8px', maxWidth: '400px', margin: '20px auto', backgroundColor: '#f9f9f9' }}>
-      <h2>Decrypt Image</h2>
-      <p>Unlock your photos using the Secret Key.</p>
+    <div className="card-panel">
+      <div className="panel-header">
+        <h2>Decrypt Image</h2>
+        <p>Restore your original photo using the secret key.</p>
+      </div>
       
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ display: 'block', marginBottom: '5px' }}>1. Encrypted Image:</label>
-        <input type="file" onChange={onImageChange} accept="image/*" />
+      <div className="file-input-group">
+        <label>Encrypted Image</label>
+        <div className="file-upload-box">
+          <input type="file" onChange={onImageChange} accept="image/*" />
+        </div>
       </div>
 
-      <div style={{ marginBottom: '10px' }}>
-        <label style={{ display: 'block', marginBottom: '5px' }}>2. Secret Key:</label>
-        <input type="file" onChange={onKeyChange} accept=".key" />
+      <div className="file-input-group">
+        <label>Secret Key File</label>
+        <div className="file-upload-box">
+          <input type="file" onChange={onKeyChange} accept=".key" />
+        </div>
       </div>
       
-      <br />
-      
       <button 
+        className="action-button secondary-btn"
         onClick={onDecrypt} 
         disabled={isLoading}
-        style={{ padding: '10px 20px', background: '#28a745', color: 'white', border: 'none', cursor: 'pointer' }}
       >
+        {isLoading && <span className="spinner"></span>}
         {isLoading ? "Decrypting..." : "Unlock Image"}
       </button>
     </div>

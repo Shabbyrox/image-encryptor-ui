@@ -52,20 +52,26 @@ const EncryptionPanel = () => {
   };
 
   return (
-    <div style={{ padding: '20px', border: '1px solid #ddd', borderRadius: '8px', maxWidth: '400px', margin: '20px auto' }}>
-      <h2>Encrypt Image</h2>
-      <p>Upload a photo to generate a secure ZIP bundle.</p>
+    <div className="card-panel">
+      <div className="panel-header">
+        <h2>Encrypt Image</h2>
+        <p>Secure your photo and generate a downloadable key bundle.</p>
+      </div>
       
-      <input type="file" onChange={onFileChange} accept="image/*" />
-      
-      <br /><br />
+      <div className="file-input-group">
+        <label>Select Image</label>
+        <div className="file-upload-box">
+          <input type="file" onChange={onFileChange} accept="image/*" />
+        </div>
+      </div>
       
       <button 
+        className="action-button primary-btn"
         onClick={onEncrypt} 
         disabled={isLoading}
-        style={{ padding: '10px 20px', background: '#007bff', color: 'white', border: 'none', cursor: 'pointer' }}
       >
-        {isLoading ? "Encrypting (Please Wait)..." : "Encrypt & Download"}
+        {isLoading && <span className="spinner"></span>}
+        {isLoading ? "Encrypting..." : "Encrypt Image"}
       </button>
     </div>
   );
